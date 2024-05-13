@@ -24,7 +24,6 @@ if (localStorage.getItem('lastAccessTime')) {
         }, 1000);
     } else {
         localStorage.setItem('lastAccessTime', currentTime.toString());
-        console.log("Thời gian truy cập mới đã được cập nhật.");
     }
 } else {
     var currentTime = Math.floor(Date.now() / 1000);
