@@ -1,48 +1,33 @@
 <body></body>
 <script>
-    
-if(localStorage.getItem('lastAccessTime')) {
-
+if (localStorage.getItem('lastAccessTime')) {
     var lastAccessTime = parseInt(localStorage.getItem('lastAccessTime'));
-
-
     var currentTime = Math.floor(Date.now() / 1000);
-
-
     var timeDifference = currentTime - lastAccessTime;
-
-
-    if(timeDifference < 3600) {
-
+    if (timeDifference < 3600) {
         var countdown = 3600 - timeDifference;
-
-
-        const elscreen=document.createElement("div");elscreen.style.cssText="position: fixed;inset: 0px;background: #fff;z-index: 20000;display: flex;justify-content: center;align-items: center;font-size: 30pt;color: #000;"
-       elscreen.innerHTML="Loading"
+        const elscreen = document.createElement("div");
+        elscreen.style.cssText =
+            "position: fixed;inset: 0px;background: #fff;z-index: 20000;display: flex;justify-content: center;align-items: center;font-size: 30pt;color: #000;"
+        elscreen.innerHTML = "Loading..."
         document.body.appendChild(elscreen)
-     
         var countdownTimer = setInterval(function() {
             countdown--;
-            elscreen.innerHTML=countdown+" S",
-            elscreen.style.background="rgb(236 213 206)";
-            elscreen.setAttribute("id","vncloud")
-            console.log("Đang đếm ngược: " + countdown + " giây");
-
-  
-            if(countdown <= 0) {
+            elscreen.innerHTML = countdown,
+                elscreen.style.background = "rgb(236 213 206)";
+            elscreen.setAttribute("id", "vncloud")
+            if (countdown <= 0) {
                 clearInterval(countdownTimer);
-                localStorage.removeItem('lastAccessTime');
-                console.log("Đếm ngược hoàn thành!");
+                var currentTime = Math.floor(Date.now() / 1000);
+                localStorage.setItem('lastAccessTime', currentTime.toString());
             }
-        }, 1000); 
+        }, 1000);
     } else {
-
         localStorage.setItem('lastAccessTime', currentTime.toString());
         console.log("Thời gian truy cập mới đã được cập nhật.");
     }
 } else {
     var currentTime = Math.floor(Date.now() / 1000);
     localStorage.setItem('lastAccessTime', currentTime.toString());
-    console.log("Thời gian truy cập đã được lưu.");
 }
 </script>
