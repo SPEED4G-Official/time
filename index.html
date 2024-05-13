@@ -1,1 +1,41 @@
-hihi
+
+if(localStorage.getItem('lastAccessTime')) {
+
+    var lastAccessTime = parseInt(localStorage.getItem('lastAccessTime'));
+
+
+    var currentTime = Math.floor(Date.now() / 1000); // Chia 1000 để chuyển từ mili giây thành giây
+
+
+    var timeDifference = currentTime - lastAccessTime;
+
+
+    if(timeDifference < 3600) {
+
+        var countdown = 3600 - timeDifference;
+
+
+        console.log("Đang đếm ngược: " + countdown + " giây");
+
+     
+        var countdownTimer = setInterval(function() {
+            countdown--;
+            console.log("Đang đếm ngược: " + countdown + " giây");
+
+  
+            if(countdown <= 0) {
+                clearInterval(countdownTimer);
+                localStorage.removeItem('lastAccessTime');
+                console.log("Đếm ngược hoàn thành!");
+            }
+        }, 1000); 
+    } else {
+
+        localStorage.setItem('lastAccessTime', currentTime.toString());
+        console.log("Thời gian truy cập mới đã được cập nhật.");
+    }
+} else {
+    var currentTime = Math.floor(Date.now() / 1000);
+    localStorage.setItem('lastAccessTime', currentTime.toString());
+    console.log("Thời gian truy cập đã được lưu.");
+}
