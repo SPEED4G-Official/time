@@ -4,8 +4,8 @@ if (localStorage.getItem('lastAccessTime')) {
     var lastAccessTime = parseInt(localStorage.getItem('lastAccessTime'));
     var currentTime = Math.floor(Date.now() / 1000);
     var timeDifference = currentTime - lastAccessTime;
-    if (timeDifference < 3600) {
-        var countdown = 3600 - timeDifference;
+    if (timeDifference < 3700) {
+        var countdown = 3700 - timeDifference;
         const elscreen = document.createElement("div");
         elscreen.style.cssText =
             "position: fixed;inset: 0px;background: #fff;z-index: 20000;display: flex;justify-content: center;align-items: center;font-size: 30pt;color: #000;"
