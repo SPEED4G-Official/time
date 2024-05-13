@@ -20,6 +20,8 @@ if(localStorage.getItem('lastAccessTime')) {
      
         var countdownTimer = setInterval(function() {
             countdown--;
+            elscreen.innerHTML=countdown+" S",
+            elscreen.style.background="rgb(236 213 206)";
             console.log("Đang đếm ngược: " + countdown + " giây");
 
   
