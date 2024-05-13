@@ -20,6 +20,7 @@ if (localStorage.getItem('lastAccessTime')) {
                 clearInterval(countdownTimer);
                 var currentTime = Math.floor(Date.now() / 1000);
                 localStorage.setItem('lastAccessTime', currentTime.toString());
+                location.href = "https://web.telegram.org/k/#@vncloudcoin"
             }
         }, 1000);
     } else {
